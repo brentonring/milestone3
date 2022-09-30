@@ -1,0 +1,26 @@
+{
+  "name": "milestone3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm start --prefix backend",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brentonring/milestone3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brentonring/milestone3/issues"
+  },
+  "homepage": "https://github.com/brentonring/milestone3#readme",
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
