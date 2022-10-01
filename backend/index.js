@@ -18,7 +18,9 @@ app.get('/', (req, res) => {
 })
 
 // CONTROLLERS AND ROUTES
-// app.use('/books', require('./controllers/books'))
+app.use('/books', require('./controllers/books'));
+app.use('/profile', require('./controllers/profile'));
+
 
 // Listen for Connections
 app.listen(process.env.PORT, () => {
