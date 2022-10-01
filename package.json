@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/brentonring/milestone3#readme",
   "dependencies": {
+    "@mui/icons-material": "^5.10.6",
     "concurrently": "^7.4.0"
   }
 }
