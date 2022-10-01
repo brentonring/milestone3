@@ -28,7 +28,7 @@ function Footer() {
             color="#EC412F"
             component="p"
         >
-            A place to share our passion for books!
+            A place to share our passion for books
         </Typography>
         <Copyright />
     </Box>
