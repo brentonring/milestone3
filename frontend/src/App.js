@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import RelitAppBar from './components/AppBar.js';
 import Footer from './components/Footer.js';
