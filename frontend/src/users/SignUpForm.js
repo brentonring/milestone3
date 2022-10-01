@@ -13,11 +13,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function SignUpForm(props) {
+function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="http://relitbooks.us ">
         Relit Books
       </Link>{' '}
       {new Date().getFullYear()}
@@ -28,7 +28,7 @@ function SignUpForm(props) {
 
 const theme = createTheme();
 
-export default function SignUpForm() {
+function SignUpForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -129,3 +129,4 @@ export default function SignUpForm() {
     </ThemeProvider>
   );
 }
+export default SignUpForm;
