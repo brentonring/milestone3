@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
 app.use('/books', require('./controllers/books'));
 app.use('/profile', require('./controllers/profile'));
 app.use('/users', require('./controllers/users'));
+app.use('/authentication', require('./controllers/authentication'));
 
 
 // Listen for Connections

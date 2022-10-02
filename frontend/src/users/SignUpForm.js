@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme();
 
-export default function SignUpForm() {
+function SignUpForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -115,3 +115,5 @@ export default function SignUpForm() {
     </ThemeProvider>
   );
 }
+
+export default SignUpForm
