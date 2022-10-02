@@ -12,8 +12,17 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
 const theme = createTheme();
+
+const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText('#EC412F'),
+    backgroundColor: '#EC412F',
+    '&:hover': {
+        backgroundColor: '#EC412F',
+    },
+}));
 
 function LoginForm() {
 const handleSubmit = (event) => {
@@ -43,7 +52,7 @@ return (
                 <Typography component="h1" variant="h5">
                     Welcome Back!
                 </Typography>
-                <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
                 <TextField
                     margin="normal"
                     required
@@ -65,10 +74,10 @@ return (
                     autoComplete="current-password"
                 />
                 <FormControlLabel
-                    control={<Checkbox value="remember" />}
+                    control={<Checkbox value="remember" style= {{ color:'#EC412F'}} />}
                     label="Remember me"
                 />
-                <Button
+                <ColorButton
                     type="submit"
                     fullWidth
                     variant="contained"
@@ -76,15 +85,15 @@ return (
                     style={{ color: '#F7F7F7', fontWeight: 'bold' }}
                 >
                     Log In
-                </Button>
+                </ColorButton>
                 <Grid container sx={{ mb: 16 }} >
                     <Grid item xs>
-                    <Link href="#" variant="body2" >
+                    <Link href="#" variant="body2" style= {{ color:'#EC412F', textDecoration: 'none'}} >
                         Forgot password?
                     </Link>
                     </Grid>
                     <Grid item >
-                    <Link href="#" variant="body2">
+                    <Link href="#" variant="body2" style= {{ color:'#EC412F', textDecoration: 'none'}}>
                         {"Don't have an account? Sign Up"}
                     </Link>
                     </Grid>

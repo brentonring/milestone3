@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <RelitAppBar/>
       <LoginForm/>
-      {/* <SignUpForm/> */}
+      <SignUpForm/>
       {/* <HomeBody/> */}
       <Footer/>
     </div>

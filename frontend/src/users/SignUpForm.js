@@ -12,9 +12,18 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
 
 const theme = createTheme();
+
+const ColorButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText('#EC412F'),
+  backgroundColor: '#EC412F',
+  '&:hover': {
+    backgroundColor: '#EC412F',
+  },
+}));
 
 function SignUpForm() {
   const handleSubmit = (event) => {
@@ -38,8 +47,8 @@ function SignUpForm() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+          <Avatar sx={{ m: 1, bgcolor: '#EC412F' }}>
+            <LockOutlinedIcon style={{ color: '#F7F7F7' }} />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
@@ -90,22 +99,23 @@ function SignUpForm() {
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  control={<Checkbox value="allowExtraEmails" style= {{ color:'#EC412F'}}/>}
+                  label="I want to receive suggestions, marketing promotions and updates."
                 />
               </Grid>
             </Grid>
-            <Button
+            <ColorButton
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, bgcolor: '#0B295B' }}
+              style={{ color: '#F7F7F7', fontWeight: 'bold' }}
             >
               Sign Up
-            </Button>
+            </ColorButton>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" style= {{ color:'#EC412F', textDecoration: 'none'}}>
                   Already have an account? Sign in
                 </Link>
               </Grid>
