@@ -17,7 +17,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
     const theme = createTheme();
 
-function HomeBody() {
+
+function HomeBody({books, setBooks}) {
     return (
     <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -59,8 +60,8 @@ function HomeBody() {
         <Container sx={{ py: 8 }} maxWidth="md">
             {/* End hero unit */}
             <Grid container spacing={4}>
-            {cards.map((card) => (
-                <Grid item key={card} xs={12} sm={6} md={4}>
+            {books.map((card) => (
+                <Grid item key={card.id} xs={12} sm={6} md={4}>
                 <Card
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
@@ -75,11 +76,10 @@ function HomeBody() {
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Heading
+                        {card.title}
                     </Typography>
                     <Typography>
-                        This is a media card. You can use this section to describe the
-                        content.
+                        {card.author}
                     </Typography>
                     </CardContent>
                     <CardActions>
