@@ -34,12 +34,14 @@ function HomeBody() {
                         alt="random image from unsplashed"
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            Heading
+                        <Typography gutterBottom variant="h5" component="h2" style={{ color: '#0B295B' }}>
+                            Book Title
                         </Typography>
-                        <Typography>
-                            This is a media card. You can use this section to describe the
-                            content.
+                        <Typography style={{ fontSize: 14, color: '#2F4858' }}>
+                        Narwhal mustache before they sold out celiac, iceland plaid bicycle  distillery.
+                        Hella humblebrag meh fixie shabby chic edison bulb art party thundercats
+                        roof party. Snackwave pug chia deep vibecession. Selfies biodiesel
+                        aesthetic meditation, chambray lumbersexual etsy semiotics.
                         </Typography>
                     </CardContent>
                     <CardActions style={{justifyContent: 'center'}}>
