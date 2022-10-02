@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 // CONTROLLERS AND ROUTES
 app.use('/books', require('./controllers/books'));
 app.use('/profile', require('./controllers/profile'));
+app.use('/users', require('./controllers/users'));
 
 
 // Listen for Connections

@@ -6,16 +6,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-    const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-    const theme = createTheme();
+const theme = createTheme();
 
 
 function HomeBody({books, setBooks}) {
@@ -23,42 +22,7 @@ function HomeBody({books, setBooks}) {
     <ThemeProvider theme={theme}>
         <CssBaseline />
         <main>
-        {/* Hero unit */}
-        <Box
-            sx={{
-            bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
-            }}
-        >
-            <Container maxWidth="sm">
-            <Typography
-                component="h1"
-                variant="h2"
-                align="center"
-                color="text.primary"
-                gutterBottom
-            >
-                Album layout
-            </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                Something short and leading about the collection below—its contents,
-                the creator, etc. Make it short and sweet, but not too short so folks
-                don&apos;t simply skip over it entirely.
-            </Typography>
-            <Stack
-                sx={{ pt: 4 }}
-                direction="row"
-                spacing={2}
-                justifyContent="center"
-            >
-                <Button variant="contained">Main call to action</Button>
-                <Button variant="outlined">Secondary action</Button>
-            </Stack>
-            </Container>
-        </Box>
-        <Container sx={{ py: 8 }} maxWidth="md">
-            {/* End hero unit */}
+        <Container sx={{ py: 3, bgcolor: '#F7F7F7', width: 'auto'}}>
             <Grid container spacing={4}>
             {books.map((card) => (
                 <Grid item key={card.id} xs={12} sm={6} md={4}>
@@ -66,25 +30,30 @@ function HomeBody({books, setBooks}) {
                     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                     <CardMedia
-                    component="img"
-                    sx={{
-                        // 16:9
-                        pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random"
-                    alt="random"
+                        component="img"
+                        image="https://source.unsplash.com/random"
+                        alt="random image from unsplashed"
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {card.title}
-                    </Typography>
-                    <Typography>
-                        {card.author}
-                    </Typography>
+                        <Typography gutterBottom variant="h5" component="h2" style={{ color: '#0B295B' }}>
+                            Book Title
+                            {/* {card.title} */}
+                        </Typography>
+                        <Typography style={{ fontSize: 14, color: '#2F4858' }}>
+                        Narwhal mustache before they sold out celiac, iceland plaid bicycle  distillery.
+                        Hella humblebrag meh fixie shabby chic edison bulb art party thundercats
+                        roof party. Snackwave pug chia deep vibecession. Selfies biodiesel
+                        aesthetic meditation, chambray lumbersexual etsy semiotics.
+                        {/* {card.author} */}
+                        </Typography>
                     </CardContent>
-                    <CardActions>
-                    <Button size="small">View</Button>
-                    <Button size="small">Edit</Button>
+                    <CardActions style={{justifyContent: 'center'}}>
+                        <Button sx={{ color: '#EC412F' }} size="small" href="https://google.com">
+                            <AutoStoriesIcon/>
+                        </Button>
+                        <Button>
+                            <FavoriteIcon sx={{ color: '#EC412F' }} />
+                        </Button>
                     </CardActions>
                 </Card>
                 </Grid>
