@@ -13,9 +13,15 @@ router.post("/", async (req, res) => {
   res.json(user);
 });
 
+// FIND ALL USERS
 router.get("/", async (req, res) => {
-  const users = await User.findAll();
-  res.json(users);
+    try {
+        const foundUsers = await User.findAll();
+        res.status(200).json(foundUsers)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+  
 });
 
 module.exports = router;
