@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <RelitAppBar/>
-      <LoginForm/>
-      <SignUpForm/>
-      {/* <HomeBody/> */}
+      {/* <LoginForm/>
+      <SignUpForm/> */}
+      <HomeBody/>
       <Footer/>
     </div>
   );

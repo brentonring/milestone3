@@ -120,7 +120,7 @@ function SignUpForm() {
             >
               Sign Up
             </ColorButton>
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="flex-end" sx={{ mb: 8 }}>
               <Grid item>
                 <Link href="#" variant="body2" style= {{ color:'#EC412F', textDecoration: 'none'}}>
                   Already have an account? Sign in

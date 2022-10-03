@@ -109,7 +109,7 @@ return (
                 >
                     Log In
                 </ColorButton>
-                <Grid container sx={{ mb: 16 }} >
+                <Grid container sx={{ mb: 8 }} >
                     <Grid item xs>
                     <Link href="#" variant="body2" style= {{ color:'#EC412F', textDecoration: 'none'}} >
                         Forgot password?
