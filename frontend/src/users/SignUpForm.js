@@ -12,23 +12,20 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
-function SignUpForm(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Relit Books
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const theme = createTheme();
 
-export default function SignUpForm() {
+const ColorButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText('#EC412F'),
+  backgroundColor: '#EC412F',
+  '&:hover': {
+    backgroundColor: '#EC412F',
+  },
+}));
+
+function SignUpForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -50,8 +47,8 @@ export default function SignUpForm() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+          <Avatar sx={{ m: 1, bgcolor: '#EC412F' }}>
+            <LockOutlinedIcon style={{ color: '#F7F7F7' }} />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
@@ -66,7 +63,8 @@ export default function SignUpForm() {
                   fullWidth
                   id="firstName"
                   label="First Name"
-                  autoFocus
+                  color="warning"
+                  focused
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -77,6 +75,8 @@ export default function SignUpForm() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  color="warning"
+                  focused
                 />
               </Grid>
               <Grid item xs={12}>
@@ -87,6 +87,8 @@ export default function SignUpForm() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  color="warning"
+                  focused
                 />
               </Grid>
               <Grid item xs={12}>
@@ -98,34 +100,37 @@ export default function SignUpForm() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  color="warning"
+                  focused
                 />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  control={<Checkbox value="allowExtraEmails" style= {{ color:'#EC412F'}}/>}
+                  label="I want to receive suggestions, marketing promotions and updates."
                 />
               </Grid>
             </Grid>
-            <Button
+            <ColorButton
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, bgcolor: '#0B295B' }}
+              style={{ color: '#F7F7F7', fontWeight: 'bold' }}
             >
               Sign Up
-            </Button>
-            <Grid container justifyContent="flex-end">
+            </ColorButton>
+            <Grid container justifyContent="flex-end" sx={{ mb: 8 }}>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" style= {{ color:'#EC412F', textDecoration: 'none'}}>
                   Already have an account? Sign in
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
 }
+export default SignUpForm;

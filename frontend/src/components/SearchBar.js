@@ -1,10 +1,18 @@
 import { useState } from "react"
-import IconButton from "@mui/material/IconButton"
-import SearchIcon from "@mui/icons-material/Search"
-import TextField from "@mui/material/TextField"
+import SearchIcon from '@mui/icons-material/Search'
+import { getBooks } from "../api/axios"
 
-const SearchBar = ({setSearchQuery}) => {
+const SearchBar = ({books, setSearchResults}) => {
     const handleSubmit = (e) => e.preventDefault()
+
+    const handleSearchChange = (e) => {
+        console.log(e.target.value)
+        if (!e.target.value) return setSearchResults(books)
+
+        const resultsArray = books.filter(book => book.volumeInfo.title.includes(e.target.value) || book.volumeInfo.author.includes(e.target.value))
+
+        setSearchResults(resultsArray)
+    }
     return (
         <header>
             <form className="search" onSubmit={handleSubmit}>
@@ -14,7 +22,9 @@ const SearchBar = ({setSearchQuery}) => {
                     id="search"
                     onChange={handleSearchChange}
                 />
-                <button className="search__button"></button>
+                <button className="search__button">
+                    <SearchIcon />
+                </button>
             </form>
         </header>
     )
