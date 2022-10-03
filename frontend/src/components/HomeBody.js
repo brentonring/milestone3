@@ -12,7 +12,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const theme = createTheme();
 
@@ -36,15 +37,15 @@ function HomeBody({books, setBooks}) {
                     />
                     <CardContent sx={{ flexGrow: 1 }}>
                         <Typography gutterBottom variant="h5" component="h2" style={{ color: '#0B295B' }}>
-                            Book Title
-                            {/* {card.title} */}
+                            {/* Book Title */}
+                            {card.title}
                         </Typography>
                         <Typography style={{ fontSize: 14, color: '#2F4858' }}>
-                        Narwhal mustache before they sold out celiac, iceland plaid bicycle  distillery.
+                        {/* Narwhal mustache before they sold out celiac, iceland plaid bicycle  distillery.
                         Hella humblebrag meh fixie shabby chic edison bulb art party thundercats
                         roof party. Snackwave pug chia deep vibecession. Selfies biodiesel
-                        aesthetic meditation, chambray lumbersexual etsy semiotics.
-                        {/* {card.author} */}
+                        aesthetic meditation, chambray lumbersexual etsy semiotics. */}
+                        {card.description}
                         </Typography>
                     </CardContent>
                     <CardActions style={{justifyContent: 'center'}}>

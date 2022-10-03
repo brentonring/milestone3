@@ -1,21 +1,21 @@
 import { useContext, useEffect, useState } from "react"
 import { CurrentBooks } from "../contexts/BooksContext"
 
-const data = [{
-    author:"David",
-    title: "test 1",
+// const data = [{
+//     author:"David",
+//     title: "test 1",
 
-},
-{
-    author:"Brenton",
-    title: "test 2",
+// },
+// {
+//     author:"Brenton",
+//     title: "test 2",
 
-},
-{
-    author:"Eric",
-    title: "test 3",
+// },
+// {
+//     author:"Eric",
+//     title: "test 3",
 
-}]
+// }]
 
 
 
@@ -23,7 +23,7 @@ const SearchBar = () => {
     const { currentBooks, setCurrentBooks } = useContext(CurrentBooks)
     useEffect(() => {
         setCurrentBooks(currentBooks)
-    }, [currentBooks])
+    }, [currentBooks, setCurrentBooks])
     console.log(currentBooks)
     const handleSearchChange = (e) => {
         console.log(e.target.value)
