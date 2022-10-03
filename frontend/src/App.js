@@ -7,28 +7,21 @@ import { useState, useEffect } from 'react'
 import LoginForm from './users/LoginForm';
 import SignUpForm from './users/SignUpForm';
 import SearchBar from './components/SearchBar';
+import CurrentBooksProvider from './contexts/BooksContext';
 
 function App() {
   const [books, setBooks] = useState([])
   const [searchResults, setSearchResults] = useState([])
-
-  useEffect(() => {
-    getBooks().then(json => {
-      setBooks(json)
-      return json
-    }).then(json => {
-      setSearchResults(json)
-    })
-  }, [])
-
   
   return (
     <div className="App">
       <RelitAppBar/>
       {/* <LoginForm/>
       <SignUpForm/> */}
-      <SearchBar books={books} setSearchResults={setSearchResults} />
-      <HomeBody searchResults={searchResults}/>
+      <CurrentBooksProvider>
+        <SearchBar books={books} setSearchResults={setSearchResults} />
+        <HomeBody searchResults={searchResults}/>
+      </CurrentBooksProvider>
       <Footer/>
     </div>
   );
