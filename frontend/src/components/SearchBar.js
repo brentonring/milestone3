@@ -1,11 +1,12 @@
 import { useState } from "react"
 import SearchIcon from '@mui/icons-material/Search'
-import { getBooks } from "../api/axios"
+// import { getBooks } from "../api/axios"
 
 const SearchBar = ({books, setSearchResults}) => {
     const handleSubmit = (e) => e.preventDefault()
 
     const handleSearchChange = (e) => {
+        // let results = getBooks()
         console.log(e.target.value)
         if (!e.target.value) return setSearchResults(books)
 

@@ -5,7 +5,8 @@ export const api = axios.create({
 })
 
 export const getBooks = async () => {
-    const response = await api.get('?q=stephen+king&maxResults=9&key=AIzaSyD_aAGOIHI8JRtduNot9XrxiGybkVnZb_4')
+    console.log('api test', process.env.REACT_APP_GOOGLE_BOOKS_API)
+    const response = await api.get('?q=stephen&maxResults=12&key=' + process.env.REACT_APP_GOOGLE_BOOKS_API)
     console.log(response.data.items)
     return response.data.items
 }

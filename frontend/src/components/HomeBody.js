@@ -11,10 +11,13 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 const theme = createTheme();
 
 function HomeBody({ searchResults }) {
+    // const [fullDesc, setFullDesc] = useState(false)
+
     return (
     <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -40,6 +43,10 @@ function HomeBody({ searchResults }) {
                         </Typography>
                         <Typography style={{ fontSize: 14, color: '#2F4858' }}>
                         {book.volumeInfo.description.substring(0,200) + '...'}
+                        <br />
+                        <Button style={{justifyContent: 'center'}}>
+                            <ArrowDropDownIcon />
+                        </Button>
                         </Typography>
                     </CardContent>
                     <CardActions style={{justifyContent: 'center'}}>
