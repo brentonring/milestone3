@@ -63,7 +63,8 @@ function SignUpForm() {
                   fullWidth
                   id="firstName"
                   label="First Name"
-                  autoFocus
+                  color="warning"
+                  focused
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -74,6 +75,8 @@ function SignUpForm() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  color="warning"
+                  focused
                 />
               </Grid>
               <Grid item xs={12}>
@@ -84,6 +87,8 @@ function SignUpForm() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  color="warning"
+                  focused
                 />
               </Grid>
               <Grid item xs={12}>
@@ -95,6 +100,8 @@ function SignUpForm() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  color="warning"
+                  focused
                 />
               </Grid>
               <Grid item xs={12}>

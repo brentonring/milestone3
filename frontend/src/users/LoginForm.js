@@ -24,6 +24,26 @@ const ColorButton = styled(Button)(({ theme }) => ({
     },
 }));
 
+const clickedColor = styled(TextField)({
+    '& label.Mui-focused': {
+        color: 'green',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: 'green',
+    },
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+        borderColor: 'red',
+        },
+        '&:hover fieldset': {
+        borderColor: 'yellow',
+        },
+        '&.Mui-focused fieldset': {
+        borderColor: 'green',
+        },
+    },
+});
+
 function LoginForm() {
 const handleSubmit = (event) => {
     event.preventDefault();
@@ -61,7 +81,8 @@ return (
                     label="Email Address"
                     name="email"
                     autoComplete="email"
-                    autoFocus
+                    color="warning"
+                    focused
                 />
                 <TextField
                     margin="normal"
@@ -72,6 +93,8 @@ return (
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                    color="warning"
+                    focused
                 />
                 <FormControlLabel
                     control={<Checkbox value="remember" style= {{ color:'#EC412F'}} />}
