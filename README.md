@@ -1,5 +1,5 @@
 <p align="center">
- <img width="100px" src="./frontend/public/Relit.png" align="center" alt="Relit Books" />
+ <img width="100px" src="./frontend/public/ReLit.png" align="center" alt="Relit Books" />
  <h2 align="center">Relit Books</h2>
 
 
