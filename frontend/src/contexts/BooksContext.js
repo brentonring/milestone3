@@ -6,11 +6,10 @@ export const CurrentBooksContext = createContext()
 function CurrentBooksProvider({ children }){
 
     const [currentBooks, setCurrentBooks] = useState([])
-    const [searchTerm, setSearchTerm] = useState("")
   
 
     return (
-        <CurrentBooksContext.Provider value={{ currentBooks, setCurrentBooks, searchTerm, setSearchTerm }}>
+        <CurrentBooksContext.Provider value={{ currentBooks, setCurrentBooks  }}>
             {children}
         </CurrentBooksContext.Provider>
     )

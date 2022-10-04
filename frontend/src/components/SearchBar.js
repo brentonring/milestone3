@@ -8,10 +8,8 @@ import TextField from '@mui/material/TextField';
 
 const SearchBar = () => {
     const handleSubmit = (e) => e.preventDefault()
-    const { setCurrentBooks, searchTerm, setSearchTerm } = useContext(CurrentBooksContext)
-
-    // const [searchResults, setSearchResults] = useState([])
-
+    const { setCurrentBooks } = useContext(CurrentBooksContext)
+    
     useEffect(() => {
         const initialData = async () => {
             const results = await getBooks('barack+obama')
@@ -23,23 +21,17 @@ const SearchBar = () => {
       }, [])
     
     const handleSearchChange = async (e) => {
-        // setSearchTerm(e.target.value)
         if (e.target.value) {
             const results = await getBooks(e.target.value)
             setCurrentBooks(results)
         } else {
-            // setSearchTerm('abc')
             console.log('test else 24' )
-            const results = await getBooks('barack+obama')
+            const results = await getBooks('colorado')
             console.log('book results', results)
             setCurrentBooks(results)
         }
-        // let results = getBooks()
         console.log(e.target.value)
-        // if (!e.target.value) return setSearchResults(books)
     }
-
-        // const resultsArray = books.filter(book => book.volumeInfo.title.includes(e.target.value) || book.volumeInfo.author.includes(e.target.value))
 
     // THis is the desired styling from material UI
         return (
