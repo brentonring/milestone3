@@ -7,7 +7,7 @@ function Copyright() {
 return (
 <Typography variant='body2' color="#0B295B" align="center">
     {'Copyright © '}
-    <Link color="#0B295B" href="https://relitbooks.us/" target="_blank">
+    <Link color="#0B295B" href="http://relitbooks.us/" target="_blank">
         Relit Books
     </Link>
     {' '}
