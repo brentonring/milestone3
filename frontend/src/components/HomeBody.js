@@ -22,12 +22,10 @@ const theme = createTheme();
 function HomeBody({ searchResults }) {
     // const [fullDesc, setFullDesc] = useState(false)
     const { currentBooks, setCurrentBooks } = useContext(CurrentBooksContext)
-    const [content, setContent] = useState(currentBooks)
-    useEffect(() => {
-        setContent(currentBooks)
-    }, [content, currentBooks])
+    // useEffect(() => {
+    //     setContent(currentBooks)
+    // }, [currentBooks])
     // if (!currentBooks) setCurrentBooks([])
-    console.log('content', content)
     console.log('consume', currentBooks)
 
     return (

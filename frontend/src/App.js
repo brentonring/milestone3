@@ -10,7 +10,6 @@ import SearchBar from './components/SearchBar';
 import CurrentBooksProvider from './contexts/BooksContext';
 
 function App() {
-  const [books, setBooks] = useState([])
   const [searchResults, setSearchResults] = useState([])
   
   return (
@@ -19,7 +18,7 @@ function App() {
       {/* <LoginForm/>
       <SignUpForm/> */}
       <CurrentBooksProvider>
-        <SearchBar books={books} setSearchResults={setSearchResults} />
+        <SearchBar />
         <HomeBody searchResults={searchResults}/>
       </CurrentBooksProvider>
       <Footer/>

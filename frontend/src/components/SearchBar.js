@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState, useContext, useEffect } from "react"
-import { useState, useContext } from "react"
 import SearchIcon from '@mui/icons-material/Search'
 import { getBooks } from "../api/axios"
 import { CurrentBooksContext } from "../contexts/BooksContext"
@@ -8,7 +7,6 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 const SearchBar = () => {
-    const [bookResults, setBookResults] = useState([])
     const handleSubmit = (e) => e.preventDefault()
     const { setCurrentBooks, searchTerm, setSearchTerm } = useContext(CurrentBooksContext)
 
@@ -19,19 +17,17 @@ const SearchBar = () => {
     //   }, [bookResults])
     
     const handleSearchChange = async (e) => {
-        setSearchTerm(e.target.value)
-        if (e.target.value !== '' || e.target.value !== ' ') {
-            const results = await getBooks(e.target.value)
-            setBookResults(results)
-            setCurrentBooks(bookResults)
-        } else {
-            console.log('test else 24' )
-            const results = []
-            console.log('book results', results)
-            setBookResults(results)
-            setCurrentBooks(bookResults)
-        }
         // setSearchTerm(e.target.value)
+        if (e.target.value) {
+            const results = await getBooks(e.target.value)
+            setCurrentBooks(results)
+        } else {
+            // setSearchTerm('abc')
+            console.log('test else 24' )
+            const results = await getBooks('barack+obama')
+            console.log('book results', results)
+            setCurrentBooks(results)
+        }
         // let results = getBooks()
         console.log(e.target.value)
         // if (!e.target.value) return setSearchResults(books)
