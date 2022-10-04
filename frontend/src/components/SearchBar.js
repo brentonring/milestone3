@@ -12,9 +12,15 @@ const SearchBar = () => {
 
     // const [searchResults, setSearchResults] = useState([])
 
-    // useEffect(() => {
-        
-    //   }, [bookResults])
+    useEffect(() => {
+        const initialData = async () => {
+            const results = await getBooks('barack+obama')
+            setCurrentBooks(results)    
+        }
+
+        initialData()
+            .catch(console.error)
+      }, [])
     
     const handleSearchChange = async (e) => {
         // setSearchTerm(e.target.value)
