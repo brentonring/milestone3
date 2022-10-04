@@ -6,20 +6,23 @@ module.exports = {
     "password": process.env.DB_PASSWORD,
     "database": process.env.DB_DATABASE,
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port": "5433"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "port": "5433"
   },
   "production": {
     "username": process.env.DB_USERNAME,
     "password": process.env.DB_PASSWORD,
     "database": process.env.DB_DATABASE,
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port": "5433"
   }
 }
