@@ -5,11 +5,12 @@ import Link from '@mui/material/Link';
 
 function Copyright() {
 return (
-<Typography variant="body2" color="#0B295B" align="center">
+<Typography variant='body2' color="#0B295B" align="center">
     {'Copyright © '}
     <Link color="#0B295B" href="http://relitbooks.us/" target="_blank">
         Relit Books
-    </Link>{' '}
+    </Link>
+    {' '}
     {new Date().getFullYear()}
     {'.'}
 </Typography>
