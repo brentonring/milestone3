@@ -24,26 +24,6 @@ const ColorButton = styled(Button)(({ theme }) => ({
     },
 }));
 
-const clickedColor = styled(TextField)({
-    '& label.Mui-focused': {
-        color: 'green',
-    },
-    '& .MuiInput-underline:after': {
-        borderBottomColor: 'green',
-    },
-    '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-        borderColor: 'red',
-        },
-        '&:hover fieldset': {
-        borderColor: 'yellow',
-        },
-        '&.Mui-focused fieldset': {
-        borderColor: 'green',
-        },
-    },
-});
-
 function LoginForm() {
 const handleSubmit = (event) => {
     event.preventDefault();
