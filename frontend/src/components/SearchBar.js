@@ -1,31 +1,32 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import SearchIcon from '@mui/icons-material/Search'
 import { getBooks } from "../api/axios"
 import { CurrentBooksContext } from "../contexts/BooksContext"
 
 const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState("")
+    const [bookResults, setBookResults] = useState([])
     const handleSubmit = (e) => e.preventDefault()
-    const { setCurrentBooks } = useContext(CurrentBooksContext)
+    const { setCurrentBooks, searchTerm, setSearchTerm } = useContext(CurrentBooksContext)
 
     // const [searchResults, setSearchResults] = useState([])
 
     // useEffect(() => {
-    //     async function invokeGetBooks() {
-    //         // await getBooks(searchTerm)
-    //     }
-    //     // getBooks().then(json => {
-    //     //   setBooks(json)
-    //     //   return json
-    //     // }).then(json => {
-    //     //   setSearchResults(json)
-    //     // })
-    //   }, [])
+        
+    //   }, [bookResults])
     
     const handleSearchChange = async (e) => {
-        let results = await getBooks(e.target.value)
-        console.log('book results',results)
-        setCurrentBooks(results)
+        setSearchTerm(e.target.value)
+        if (e.target.value !== '' || e.target.value !== ' ') {
+            const results = await getBooks(e.target.value)
+            setBookResults(results)
+            setCurrentBooks(bookResults)
+        } else {
+            console.log('test else 24' )
+            const results = []
+            console.log('book results', results)
+            setBookResults(results)
+            setCurrentBooks(bookResults)
+        }
         // setSearchTerm(e.target.value)
         // let results = getBooks()
         console.log(e.target.value)
