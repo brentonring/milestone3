@@ -6,4 +6,4 @@ function BookShow() {
   )
 }
 
-export default BookIndex
+export default BookShow
