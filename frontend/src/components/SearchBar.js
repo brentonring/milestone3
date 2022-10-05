@@ -5,6 +5,9 @@ import { getBooks } from "../api/axios"
 import { CurrentBooksContext } from "../contexts/BooksContext"
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
 const handleSearchChange = async (e) => {
     let results = await getBooks(e.target.value)
@@ -19,6 +22,14 @@ const handleSearchChange = async (e) => {
 
     // setSearchResults(resultsArray)
 }
+
+const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText('#EC412F'),
+    backgroundColor: '#EC412F',
+    '&:hover': {
+    backgroundColor: '#EC412F',
+    },
+}));
 
 function SearchBar() {
     const [searchTerm, setSearchTerm] = useState("")
@@ -57,19 +68,23 @@ function SearchBar() {
             <Box
                 component="form" noValidate onSubmit={handleSubmit}
                 sx={{
-                    '& > :not(style)': { m: 3, width: 500 },
+                    '& > :not(style)': { m: 3, width: 500 }, display: 'inline-flex', 
                 }}
                 autoComplete="on"
             >
+                <Grid>
                 <TextField
-                    id="search"
-                    label="Search Books Here"
+                    fullWidth
+                    id="outlined-search"
+                    label="Search Books Here" 
+                    type="search"
                     variant="outlined"
-                    onChange={handleSearchChange} />
-                    <button className="search__button">
-                        <SearchIcon />
-                    </button>
-            </Box>
+                    color="warning"
+                    focused
+                    onChange={handleSearchChange}
+                    />
+                </Grid>
+        </Box>
         )
 }
 

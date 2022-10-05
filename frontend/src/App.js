@@ -16,8 +16,8 @@ function App() {
   return (
     <div className="App">
       <RelitAppBar/>
-      {/* <LoginForm/>
-      <SignUpForm/> */}
+      {/* <LoginForm/> */}
+      {/* <SignUpForm/> */}
       <CurrentBooksProvider>
         <SearchBar books={books} setSearchResults={setSearchResults} />
         <HomeBody searchResults={searchResults}/>
