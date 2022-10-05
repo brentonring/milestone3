@@ -68,7 +68,7 @@ function SearchBar() {
             <Box
                 component="form" noValidate onSubmit={handleSubmit}
                 sx={{
-                    '& > :not(style)': { m: 3, width: 500 }, display: 'inline-flex', 
+                    '& > :not(style)': { m: 3, width: '300px' }, display: 'inline-flex', 
                 }}
                 autoComplete="on"
             >
