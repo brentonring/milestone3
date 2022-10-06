@@ -33,7 +33,6 @@ const SearchBar = () => {
     }, [quantity, searchTerm])
 
 
-    // THis is the desired styling from material UI
         return (
             <Box
                 component="form" noValidate onSubmit={handleSubmit}
