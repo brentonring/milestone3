@@ -3,11 +3,15 @@ import RelitAppBar from './components/AppBar.js';
 import Footer from './components/Footer.js';
 import HomeBody from './components/HomeBody.js';
 import { getBooks } from './api/axios'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
 import LoginForm from './users/LoginForm';
 import SignUpForm from './users/SignUpForm';
 import SearchBar from './components/SearchBar';
+import BookIndex from './books/BookIndex';
+import BookShow from './books/BookShow';
+import UserProfile from './profile/UserProfile';
 import CurrentBooksProvider from './contexts/BooksContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [books, setBooks] = useState([])
@@ -16,12 +20,23 @@ function App() {
   return (
     <div className="App">
       <RelitAppBar/>
-      {/* <LoginForm/> */}
-      {/* <SignUpForm/> */}
-      <CurrentBooksProvider>
-        <SearchBar books={books} setSearchResults={setSearchResults} />
-        <HomeBody searchResults={searchResults}/>
-      </CurrentBooksProvider>
+      <Router>
+        <Routes>           
+          <Route exact path='/' element={
+            <Fragment>    
+              <CurrentBooksProvider>
+                <SearchBar books={books} setSearchResults={setSearchResults} />
+                <HomeBody searchResults={searchResults}/>
+              </CurrentBooksProvider>
+              </Fragment> 
+          } />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/sign-up" element={<SignUpForm />} />
+          <Route path="/books" element={<BookIndex />} />
+          <Route path="/books/:bookId" element={<BookShow />} />
+          <Route path="/profile" element={<UserProfile />} />
+        </Routes>
+      </Router>
       <Footer/>
     </div>
   );

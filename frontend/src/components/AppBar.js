@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 // import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
 import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
-import { width } from '@mui/system';
 
 function RelitAppBar() {
     return (
