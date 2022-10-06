@@ -32,7 +32,7 @@ function HomeBody({ searchResults }) {
     <ThemeProvider theme={theme}>
         <CssBaseline />
         <main>
-        <Container sx={{ py: 3, bgcolor: '#F7F7F7', width: 'auto'}}>
+        <Container maxWidth="lg" >
             <Grid container spacing={4}>
             {currentBooks?.map((book) => (
                 <Grid item key={book?.id} xs={12} md={4}>
