@@ -2,8 +2,7 @@ import './App.css';
 import RelitAppBar from './components/AppBar.js';
 import Footer from './components/Footer.js';
 import HomeBody from './components/HomeBody.js';
-import { getBooks } from './api/axios'
-import { useState, useEffect, Fragment } from 'react'
+import { Fragment } from 'react'
 import LoginForm from './users/LoginForm';
 import SignUpForm from './users/SignUpForm';
 import SearchBar from './components/SearchBar';
@@ -13,10 +12,7 @@ import UserProfile from './profile/UserProfile';
 import CurrentBooksProvider from './contexts/BooksContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
-  const [books, setBooks] = useState([])
-  const [searchResults, setSearchResults] = useState([])
-  
+function App() {  
   return (
     <div className="App">
       <RelitAppBar/>
@@ -25,8 +21,8 @@ function App() {
           <Route exact path='/' element={
             <Fragment>    
               <CurrentBooksProvider>
-                <SearchBar books={books} setSearchResults={setSearchResults} />
-                <HomeBody searchResults={searchResults}/>
+                <SearchBar />
+                <HomeBody />
               </CurrentBooksProvider>
               </Fragment> 
           } />

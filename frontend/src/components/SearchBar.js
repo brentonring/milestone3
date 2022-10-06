@@ -1,56 +1,37 @@
 import * as React from 'react';
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { getBooks } from "../api/axios"
 import { CurrentBooksContext } from "../contexts/BooksContext"
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
 import Grid from '@mui/material/Grid';
 
-const handleSearchChange = async (e) => {
-    let results = await getBooks(e.target.value)
-    console.log('book results',results)
-    // setCurrentBooks(results)
-    // setSearchTerm(e.target.value)
-    // let results = getBooks()
-    console.log(e.target.value)
-    // if (!e.target.value) return setSearchResults(books)
-
-    // const resultsArray = books.filter(book => book.volumeInfo.title.includes(e.target.value) || book.volumeInfo.author.includes(e.target.value))
-
-    // setSearchResults(resultsArray)
-}
-
-function SearchBar() {
-    const [searchTerm, setSearchTerm] = useState("")
+const SearchBar = () => {
     const handleSubmit = (e) => e.preventDefault()
-    const { setCurrentBooks } = useContext(CurrentBooksContext)
-    const handleSearchChange = async (e) => {
-        let results = await getBooks(e.target.value)
-        console.log('book results',results)
-        setCurrentBooks(results)
-        // setSearchTerm(e.target.value)
-        // let results = getBooks()
-        console.log(e.target.value)
-        // if (!e.target.value) return setSearchResults(books)
-    
-        // const resultsArray = books.filter(book => book.volumeInfo.title.includes(e.target.value) || book.volumeInfo.author.includes(e.target.value))
-    
-        // setSearchResults(resultsArray)
-    }
-    // const [searchResults, setSearchResults] = useState([])
+    const { setCurrentBooks, searchTerm, setSearchTerm } = useContext(CurrentBooksContext)
+    const [quantity, setQuantity] = useState(12)
 
-    // useEffect(() => {
-    //     async function invokeGetBooks() {
-    //         // await getBooks(searchTerm)
-    //     }
-    //     // getBooks().then(json => {
-    //     //   setBooks(json)
-    //     //   return json
-    //     // }).then(json => {
-    //     //   setSearchResults(json)
-    //     // })
-    //   }, [])
+    useEffect(() => {
+        const initialData = async () => {
+            const results = await getBooks(searchTerm, quantity)
+            setCurrentBooks(results)    
+        }
+
+        initialData()
+            .catch(console.error)
+      }, [])
     
+    useEffect(() => {
+        const fetchData = async () => {
+            const results = await getBooks(searchTerm, quantity)
+            setCurrentBooks(results)    
+        }
+        fetchData()
+    }, [quantity, searchTerm])
+
 
     // THis is the desired styling from material UI
         return (
@@ -68,31 +49,25 @@ function SearchBar() {
                     label="Search Books Here" 
                     type="search"
                     variant="outlined"
+                    onChange={(e) => setSearchTerm(e.target.value)}                 
                     color="warning"
                     focused
-                    onChange={handleSearchChange}
-                    />
+                />
+
+                <InputLabel># of Results</InputLabel>
+                <Select 
+                    onChange={(e) => setQuantity(e.target.value)}
+                    value={quantity}
+                    label="Quantity"
+                >
+                    <MenuItem value={12}>12</MenuItem>
+                    <MenuItem value={24}>24</MenuItem>
+                    <MenuItem value={36}>36</MenuItem>
+                </Select>
                 </Grid>
-        </Box>
+
+            </Box>
         )
 }
-
-        // this is Brentons original code vvvvvvvvv
-//     return (
-//         <header>
-//             <form className="search" onSubmit={handleSubmit}>
-//                 <input 
-//                     className="search__input"
-//                     type="text"
-//                     id="search"
-//                     onChange={handleSearchChange}
-//                 />
-//                 <button className="search__button">
-//                     <SearchIcon />
-//                 </button>
-//             </form>
-//         </header>
-//     )
-// }
 
 export default SearchBar;
