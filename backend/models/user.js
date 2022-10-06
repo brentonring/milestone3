@@ -33,13 +33,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     password_digest: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+      type: DataTypes.STRING
+    }
   }, {
     sequelize,
     modelName: 'User',
-    table: 'users'
+    tableName: 'users'
   });
   return User;
 };

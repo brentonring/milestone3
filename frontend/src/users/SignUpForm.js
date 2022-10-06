@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
+import { useState } from 'react';
 
 const theme = createTheme();
 
@@ -25,14 +26,25 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 function SignUpForm() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+
+  const [user, setUser] = useState({
+		first_name: '',
+		last_name: '',
+		email: '',
+		password: ''
+	})
+
+	async function handleSubmit(e) {
+		e.preventDefault()
+
+		await fetch(`http://localhost:5000/users/`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(user)
+		})
+	}
 
   return (
     <ThemeProvider theme={theme}>
@@ -57,10 +69,13 @@ function SignUpForm() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="first_name"
                   required
                   fullWidth
-                  id="firstName"
+                  value={user.first_name}
+							    onChange={e => setUser({ ...user, first_name: e.target.value })}
+							    className="form-control"
+                  id="first_name"
                   label="First Name"
                   color="warning"
                   focused
@@ -70,9 +85,12 @@ function SignUpForm() {
                 <TextField
                   required
                   fullWidth
+                  value={user.last_name}
+							    onChange={e => setUser({ ...user, last_name: e.target.value })}
+							    className="form-control"
                   id="lastName"
                   label="Last Name"
-                  name="lastName"
+                  name="last_name"
                   autoComplete="family-name"
                   color="warning"
                   focused
@@ -80,8 +98,12 @@ function SignUpForm() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  type="email"
                   required
                   fullWidth
+                  value={user.email}
+							    onChange={e => setUser({ ...user, email: e.target.value })}
+							    className="form-control"
                   id="email"
                   label="Email Address"
                   name="email"
@@ -97,6 +119,9 @@ function SignUpForm() {
                   name="password"
                   label="Password"
                   type="password"
+                  value={user.password}
+							    onChange={e => (setUser({ ...user, password: e.target.value }))}
+							    className='form-control'
                   id="password"
                   autoComplete="new-password"
                   color="warning"
