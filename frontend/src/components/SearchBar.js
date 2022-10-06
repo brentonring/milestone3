@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState, useContext, useEffect } from "react"
-import SearchIcon from '@mui/icons-material/Search'
 import { getBooks } from "../api/axios"
 import { CurrentBooksContext } from "../contexts/BooksContext"
 import Box from '@mui/material/Box';
@@ -8,6 +7,7 @@ import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
+import Grid from '@mui/material/Grid';
 
 const SearchBar = () => {
     const handleSubmit = (e) => e.preventDefault()
@@ -38,19 +38,22 @@ const SearchBar = () => {
             <Box
                 component="form" noValidate onSubmit={handleSubmit}
                 sx={{
-                    '& > :not(style)': { m: 3, width: 500 },
+                    '& > :not(style)': { m: 3, width: '300px' }, display: 'inline-flex', 
                 }}
                 autoComplete="on"
             >
+                <Grid>
                 <TextField
-                    id="search"
-                    label="Search Books Here"
+                    fullWidth
+                    id="outlined-search"
+                    label="Search Books Here" 
+                    type="search"
                     variant="outlined"
-                    onChange={(e) => setSearchTerm(e.target.value)} 
+                    onChange={(e) => setSearchTerm(e.target.value)}                 
+                    color="warning"
+                    focused
                 />
-                <button className="search__button">
-                    <SearchIcon />
-                </button>
+
                 <InputLabel># of Results</InputLabel>
                 <Select 
                     onChange={(e) => setQuantity(e.target.value)}
@@ -61,6 +64,8 @@ const SearchBar = () => {
                     <MenuItem value={24}>24</MenuItem>
                     <MenuItem value={36}>36</MenuItem>
                 </Select>
+                </Grid>
+
             </Box>
         )
 }
