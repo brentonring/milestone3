@@ -15,7 +15,7 @@ function RelitAppBar() {
                 <Toolbar style={{ height: '100px', width: '100%' }} variant="dense">
                     <AutoStoriesOutlinedIcon style={{ fontSize: 50, color: '#F7F7F7' }} sx={{ mr: 5 }}/>
                     <Typography sx={{ fontWeight: 350, flexGrow: 1 }} variant="h4" color='#EC412F' component="div">
-                        Relit Books
+                        ReLit
                     </Typography>
                     <Button style={{ fontSize: 14, color: '#F7F7F7' }} sx={{ mr: 2 }} href="https://google.com">Sign Up</Button>
                     <Button style={{ fontSize: 14, color: '#F7F7F7' }} sx={{ mr: 8 }} href="https://google.com">Login</Button>

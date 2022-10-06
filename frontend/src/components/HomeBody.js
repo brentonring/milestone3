@@ -16,15 +16,14 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { CurrentBooksContext } from '../contexts/BooksContext';
 import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-
+import { getBook } from '../api/axios';
 
 
 const theme = createTheme();
 
 function HomeBody() {
     const [fullDesc, setFullDesc] = useState(false)
-    const [clickedBook, setClickedBook] = useState({})
-    const { currentBooks } = useContext(CurrentBooksContext)
+    const { currentBooks, shownBook, setShownBook } = useContext(CurrentBooksContext)
     console.log('consume', currentBooks)
 
     return (
@@ -62,9 +61,9 @@ function HomeBody() {
                             </Typography>
                         </CardContent>
                         <CardActions style={{justifyContent: 'center'}}>
-                            <a style={{ color: '#EC412F' }} size="small" href={`/books/${book?.id}`}>
+                            <Link style={{ color: '#EC412F' }} size="small" to={`/books/${book?.id}`} onClick={() => setShownBook(book?.id)} >
                                 <AutoStoriesIcon/>
-                            </a>
+                            </Link>
                             <Button>
                                 <FavoriteIcon sx={{ color: '#EC412F' }} />
                             </Button>

@@ -13,16 +13,6 @@ const SearchBar = () => {
     const handleSubmit = (e) => e.preventDefault()
     const { setCurrentBooks, searchTerm, setSearchTerm } = useContext(CurrentBooksContext)
     const [quantity, setQuantity] = useState(12)
-
-    useEffect(() => {
-        const initialData = async () => {
-            const results = await getBooks(searchTerm, quantity)
-            setCurrentBooks(results)    
-        }
-
-        initialData()
-            .catch(console.error)
-      }, [])
     
     useEffect(() => {
         const fetchData = async () => {
@@ -30,6 +20,7 @@ const SearchBar = () => {
             setCurrentBooks(results)    
         }
         fetchData()
+            .catch(console.error)
     }, [quantity, searchTerm])
 
 
