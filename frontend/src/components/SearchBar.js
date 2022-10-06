@@ -5,14 +5,18 @@ import { getBooks } from "../api/axios"
 import { CurrentBooksContext } from "../contexts/BooksContext"
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
 
 const SearchBar = () => {
     const handleSubmit = (e) => e.preventDefault()
-    const { setCurrentBooks } = useContext(CurrentBooksContext)
-    
+    const { setCurrentBooks, searchTerm, setSearchTerm } = useContext(CurrentBooksContext)
+    const [quantity, setQuantity] = useState(12)
+
     useEffect(() => {
         const initialData = async () => {
-            const results = await getBooks('barack+obama')
+            const results = await getBooks(searchTerm, quantity)
             setCurrentBooks(results)    
         }
 
@@ -20,18 +24,14 @@ const SearchBar = () => {
             .catch(console.error)
       }, [])
     
-    const handleSearchChange = async (e) => {
-        if (e.target.value) {
-            const results = await getBooks(e.target.value)
-            setCurrentBooks(results)
-        } else {
-            console.log('test else 24' )
-            const results = await getBooks('colorado')
-            console.log('book results', results)
-            setCurrentBooks(results)
+    useEffect(() => {
+        const fetchData = async () => {
+            const results = await getBooks(searchTerm, quantity)
+            setCurrentBooks(results)    
         }
-        console.log(e.target.value)
-    }
+        fetchData()
+    }, [quantity, searchTerm])
+
 
     // THis is the desired styling from material UI
         return (
@@ -46,30 +46,23 @@ const SearchBar = () => {
                     id="search"
                     label="Search Books Here"
                     variant="outlined"
-                    onChange={handleSearchChange} />
-                    <button className="search__button">
-                        <SearchIcon />
-                    </button>
+                    onChange={(e) => setSearchTerm(e.target.value)} 
+                />
+                <button className="search__button">
+                    <SearchIcon />
+                </button>
+                <InputLabel># of Results</InputLabel>
+                <Select 
+                    onChange={(e) => setQuantity(e.target.value)}
+                    value={quantity}
+                    label="Quantity"
+                >
+                    <MenuItem value={12}>12</MenuItem>
+                    <MenuItem value={24}>24</MenuItem>
+                    <MenuItem value={36}>36</MenuItem>
+                </Select>
             </Box>
         )
 }
-
-        // this is Brentons original code vvvvvvvvv
-//     return (
-//         <header>
-//             <form className="search" onSubmit={handleSubmit}>
-//                 <input 
-//                     className="search__input"
-//                     type="text"
-//                     id="search"
-//                     onChange={handleSearchChange}
-//                 />
-//                 <button className="search__button">
-//                     <SearchIcon />
-//                 </button>
-//             </form>
-//         </header>
-//     )
-// }
 
 export default SearchBar;

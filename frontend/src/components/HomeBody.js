@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { CurrentBooksContext } from '../contexts/BooksContext';
 import { useContext, useEffect, useState } from 'react'
 
@@ -19,10 +20,54 @@ import { useContext, useEffect, useState } from 'react'
 
 const theme = createTheme();
 
-function HomeBody({ searchResults }) {
-    // const [fullDesc, setFullDesc] = useState(false)
+function HomeBody() {
+    const [fullDesc, setFullDesc] = useState(false)
     const { currentBooks } = useContext(CurrentBooksContext)
     console.log('consume', currentBooks)
+
+    const handleDescClick = () => {
+        setFullDesc(!fullDesc)
+        console.log('fullDesc', fullDesc)
+        let description
+        let button
+        if (fullDesc) {
+            description = `{book?.volumeInfo?.description}`
+            button = <ArrowDropUpIcon />
+        } else {
+            description = `{book?.volumeInfo?.description?.substring(0,200) + '...'}`
+            button = <ArrowDropDownIcon />
+        }
+    }
+
+    // const ShowFull = () => {
+    //     return (
+    //         {book?.volumeInfo?.description}
+    //         <br />
+    //         <Button onClick={handleDescClick} style={{justifyContent: 'center'}}>
+    //             <ArrowDropUpIcon />
+    //             {/* {button} */}
+    //         </Button>
+    //     )
+    // }
+
+    // const ShowShort = () => {
+    //     return (
+    //         `{book?.volumeInfo?.description?.substring(0,200) + '...'}
+    //         <br />
+    //         <Button onClick={handleDescClick} style={{justifyContent: 'center'}}>
+    //             <ArrowDropDownIcon />
+    //             {/* {button} */}
+    //         </Button>`
+    //     )
+    // }
+
+    // const Description = () => {
+    //     if (fullDesc) {
+    //         return <ShowFull />
+    //     } else {
+    //         return <ShowShort />
+    //     }
+    // }
 
     return (
     <ThemeProvider theme={theme}>
@@ -48,11 +93,16 @@ function HomeBody({ searchResults }) {
                             {book?.volumeInfo?.authors}
                         </Typography>
                         <Typography style={{ fontSize: 14, color: '#2F4858' }}>
-                        {book?.volumeInfo?.description?.substring(0,200) + '...'}
-                        <br />
-                        <Button style={{justifyContent: 'center'}}>
-                            <ArrowDropDownIcon />
-                        </Button>
+                            {book?.volumeInfo?.description?.substring(0,200) + '...'}
+                            <br />
+                            <Button onClick={handleDescClick} style={{justifyContent: 'center'}}>
+                                {/* if (fullDesc) {
+                                    return <ArrowDropUpIcon />
+                                } */}
+                                <ArrowDropDownIcon />
+                                {/* {button} */}
+                            </Button>
+                            {/* <Description /> */}
                         </Typography>
                     </CardContent>
                     <CardActions style={{justifyContent: 'center'}}>
