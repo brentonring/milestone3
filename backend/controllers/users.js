@@ -3,11 +3,10 @@ const db = require("../models");
 const bcrypt = require("bcrypt");
 
 const { User } = db;
-// console.log(db)
 
+// ADD user to users table
 router.post("/", async (req, res) => {
   let { password, ...rest } = req.body;
-  console.log(req.body)
   const user = await User.create({
     ...rest,
     password_digest: await bcrypt.hash(password, 10),
