@@ -12,7 +12,7 @@ import { useContext, useEffect } from 'react'
 import { CurrentBooksContext } from '../contexts/BooksContext';
 import { getBook } from '../api/axios';
 import { CardMedia } from '@mui/material';
-import { redirect } from 'react-router';
+import { useNavigate } from 'react-router';
 
 const theme = createTheme();
 
@@ -27,7 +27,9 @@ const ColorButton = styled(Button)(({ theme }) => ({
 function BookShow() {
   const { shownBook, setShownBook, setShownBookData, shownBookData } = useContext(CurrentBooksContext)
   console.log(shownBook)
-  console.log(window.location.pathname)
+  const navigate = useNavigate()
+  // const url = window.location.pathname
+  // console.log(url.replace(/\/+$/, ''))
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -40,10 +42,7 @@ function BookShow() {
   }, [shownBook])
 
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    return redirect('/')
-  };
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -98,11 +97,11 @@ function BookShow() {
                 {shownBookData?.volumeInfo?.authors.join(', ')}
               </Typography>
               <Typography variant="h5" align="center" color="text.secondary" paragraph style={{maxHeight: '50vh', overflowY: 'scroll'}}>
-              {shownBookData?.volumeInfo?.description.replace(/<\/?[^>]+(>|$)/g, "\n\n")}
+              {shownBookData?.volumeInfo?.description.replace(/<\/?[^>]+(>|$)/g, "\n")}
               </Typography>
-              <Box component="form" noValidate onClick={handleClick} sx={{ mt: 1 }}>
+              <Box component="form" noValidate sx={{ mt: 1 }}>
                 <ColorButton
-                  type="submit"
+                  onClick={() => navigate('/')}
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2, bgcolor: '#0B295B' }}
