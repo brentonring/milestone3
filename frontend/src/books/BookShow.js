@@ -6,7 +6,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { styled } from '@mui/material/styles';
 import { useContext, useEffect } from 'react'
 import { CurrentBooksContext } from '../contexts/BooksContext';
