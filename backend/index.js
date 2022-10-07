@@ -18,7 +18,7 @@ app.use("/users", require("./controllers/users"));
 
 // serve static front end in production mode
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client", "build")));
+  app.use(express.static(path.resolve(__dirname, '..', "client", "build")));
 }
 
 // Listen for Connections
