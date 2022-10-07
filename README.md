@@ -23,7 +23,7 @@
     * Colors:
 
 ## Project Wireframe/Structure:
-<img width="100px" src="./frontend/public/Table Relationships.jpg"/>
+<img width="100px" src="./frontend/public/build/Table Relationships.jpg"/>
 
 
 
