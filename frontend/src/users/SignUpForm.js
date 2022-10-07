@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const theme = createTheme();
 
@@ -26,6 +27,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 function SignUpForm() {
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
 		first_name: '',
@@ -44,6 +46,7 @@ function SignUpForm() {
 			},
 			body: JSON.stringify(user)
 		})
+    navigate('/')
 	}
 
   return (
