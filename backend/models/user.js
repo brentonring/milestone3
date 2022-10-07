@@ -14,32 +14,31 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   User.init({
-    userId: {
-      type: DataTypes.SMALLINT,
-      primaryKey: true,
-      autoIncrement: true
-  },
-    firstName: {
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false
-      },
-    lastName: {
+    },
+    last_name: {
       type: DataTypes.STRING,
-      allowNull: false 
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false 
+      allowNull: false
     },
-    passwordDigest: {
-      type: DataTypes.STRING,
-      allowNull: false 
+    password_digest: {
+      type: DataTypes.STRING
     }
   }, {
     sequelize,
     modelName: 'User',
-    tableName: 'users',
-    timestamps: true
+    tableName: 'users'
   });
   return User;
 };

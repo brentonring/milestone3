@@ -3,14 +3,13 @@ const db = require("../models");
 const bcrypt = require("bcrypt");
 
 const { User } = db;
-// console.log(db)
 
+// ADD user to users table
 router.post("/", async (req, res) => {
-  let { password, ...data } = req.body;
-  // console.log(rest)
+  let { password, ...rest } = req.body;
   const user = await User.create({
-    ...data,
-    passwordDigest: await bcrypt.hash(password, 10),
+    ...rest,
+    password_digest: await bcrypt.hash(password, 10),
   });
   res.json(user);
 });
@@ -18,8 +17,8 @@ router.post("/", async (req, res) => {
 // FIND ALL USERS
 router.get("/", async (req, res) => {
     try {
-        const foundUsers = await User.findAll();
-        res.status(200).json(foundUsers)
+        const users = await User.findAll();
+        res.status(200).json(users)
     } catch (error) {
         res.status(500).json(error)
     }
