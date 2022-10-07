@@ -46,7 +46,7 @@ function SignUpForm() {
 			},
 			body: JSON.stringify(user)
 		})
-    navigate('/')
+    navigate('/login')
 	}
 
   return (
