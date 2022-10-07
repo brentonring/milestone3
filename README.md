@@ -23,14 +23,16 @@
     * Colors:
 
 ## Project Wireframe/Structure:
+<img width="100px" src="./frontend/public/Table Relationships.jpg"/>
 
 
 
 ---
 ### :hammer_and_wrench: Languages and Tools :
-- ✨ Front-end:
-- ✨ Back-end: 
-    - Packages:
+- ✨ Front-end: React, MaterialUI
+- ✨ Back-end: Express, Node.js, Postgres
+    - Packages: Express, NodeJS
+    - Database: Postgres/SQL
 
 - ✨ Database: PostgreSQL
 
