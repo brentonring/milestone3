@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const theme = createTheme();
 
@@ -25,14 +27,26 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 function LoginForm() {
-const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-        email: data.get('email'),
-        password: data.get('password'),
-    });
-};
+    const navigate = useNavigate();
+    
+    const [user, setUser] = useState({
+        email:'',
+        password:''
+    })
+
+
+    async function handleSubmit(e) {
+		e.preventDefault()
+
+    await fetch(`http://localhost:5000/users/`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+navigate('/profile')
+}
 
 return (
     
@@ -58,6 +72,9 @@ return (
                     margin="normal"
                     required
                     fullWidth
+                    value={user.email}
+                    onChange={e => setUser({ ...user, email: e.target.value })}
+                    className="form-control"
                     id="email"
                     label="Email Address"
                     name="email"
@@ -72,6 +89,9 @@ return (
                     name="password"
                     label="Password"
                     type="password"
+                    value={user.password}
+                    onChange={e => (setUser({ ...user, password: e.target.value }))}
+                    className='form-control'
                     id="password"
                     autoComplete="current-password"
                     color="warning"
