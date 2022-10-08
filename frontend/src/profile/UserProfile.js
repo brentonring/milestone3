@@ -21,8 +21,8 @@ function UserProfile() {
     <ThemeProvider my={6} theme={theme}>
       <CssBaseline />
       <Toolbar>
-        <Avatar mt={6} alt="Remy Sharp" src="../RHarris.jpeg" sx={{ width: 75, height: 75 }} />
-          <Typography  m={4} variant="h4" color="inherit" noWrap>
+        <Avatar mt={6} alt="Remy Harris" src="../RHarris.jpeg" sx={{ width: 75, height: 75 }} />
+          <Typography  m={4} variant="h4" style={{ color: '#0B295B' }} noWrap>
             Remy Harris
           </Typography>
         </Toolbar>
@@ -31,8 +31,7 @@ function UserProfile() {
         <Box
           sx={{
             bgcolor: 'background.paper',
-            pt: 8,
-            pb: 6,
+
             flexDirection: 'row', justifyContent: 'center'
           }}
         >
@@ -40,7 +39,7 @@ function UserProfile() {
         <Container maxWidth="md" >
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <Grid item key={card} xs={6} sm={4} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
