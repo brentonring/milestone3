@@ -5,8 +5,8 @@ module.exports = {
     "username": process.env.DB_USERNAME,
     "password": process.env.DB_PASSWORD,
     "database": process.env.DB_DATABASE,
-    // "host": "127.0.0.1",
-    "host": "awseb-e-zmqjyptqpj-stack-awsebrdsdatabase-c9ag5hc2rux0.c1dgorfmb0e2.us-east-1.rds.amazonaws.com",
+    "host": "127.0.0.1",
+    // "host": "awseb-e-zmqjyptqpj-stack-awsebrdsdatabase-c9ag5hc2rux0.c1dgorfmb0e2.us-east-1.rds.amazonaws.com",
     "dialect": "postgres",
     "port": "5432"
   },
