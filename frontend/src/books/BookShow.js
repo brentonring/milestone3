@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import StarIcon from '@mui/icons-material/Star';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import { useContext, useEffect } from 'react'
@@ -12,6 +13,7 @@ import { CurrentBooksContext } from '../contexts/BooksContext';
 import { getBook } from '../api/axios';
 import { CardMedia } from '@mui/material';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const theme = createTheme();
 
@@ -74,7 +76,7 @@ function BookShow() {
               <CardMedia
                 component="img"
                 image={shownBookData?.volumeInfo?.imageLinks?.large || shownBookData?.volumeInfo?.imageLinks?.thumbnail}
-                alt="book cover"
+                alt={`${shownBookData?.volumeInfo?.title} book cover`}
                 sx={{width: 300, height: 'auto'}}
               />
               <Typography
@@ -95,9 +97,18 @@ function BookShow() {
               >
                 {shownBookData?.volumeInfo?.authors.join(', ')}
               </Typography>
-              <Typography variant="h7" align="justify" color="text.secondary" paragraph style={{maxHeight: '50vh', overflowY: 'scroll'}}>
-              {shownBookData?.volumeInfo?.description.replace(/<\/?[^>]+(>|$)/g, "\n")}
+              <Typography variant='h5' align='center' color="text.primary" gutterBottom>
+                {shownBookData?.volumeInfo?.publishedDate.slice(0, 4)}, {shownBookData?.volumeInfo?.pageCount} pages
               </Typography>
+              <Typography variant='h5' align='center' color="text.primary" gutterBottom>
+                {shownBookData?.volumeInfo?.averageRating} <StarIcon /> ({shownBookData?.volumeInfo?.ratingsCount})
+              </Typography>
+              <Typography variant="h7" align="justify" color="text.secondary" paragraph style={{maxHeight: '50vh', overflowY: 'scroll'}}>
+                {shownBookData?.volumeInfo?.description.replace(/<\/?[^>]+(>|$)/g, " ")}
+              </Typography>
+              <a href={shownBookData?.volumeInfo?.infoLink} target="_blank" variant='h5' align='center' color="text.primary">
+                Find it on Google Books
+              </a>
               <Box component="form" noValidate sx={{ mt: 1 }}>
                 <ColorButton
                   onClick={() => navigate('/')}
