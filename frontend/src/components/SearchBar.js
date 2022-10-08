@@ -55,6 +55,7 @@ const SearchBar = () => {
                         onChange={(e) => setQuantity(e.target.value)}
                         value={quantity}
                         label="Quantity"
+                        sx={{mb: 5}}
                     >
                         <MenuItem style={{fontSize: 12, color: '#0B295B'}} value={12}>12</MenuItem>
                         <MenuItem style={{fontSize: 12, color: '#0B295B'}} value={24}>24</MenuItem>
