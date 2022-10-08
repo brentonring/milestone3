@@ -6,7 +6,7 @@ export const CurrentBooksContext = createContext()
 function CurrentBooksProvider({ children }){
 
     const [currentBooks, setCurrentBooks] = useState([])
-    const [searchTerm, setSearchTerm] = useState('barack+obama')
+    const [searchTerm, setSearchTerm] = useState('star+wars')
     const [shownBook, setShownBook] = useState([])
     const [shownBookData, setShownBookData] = useState([])
   

@@ -11,6 +11,7 @@ import { useContext, useEffect } from 'react'
 import { CurrentBooksContext } from '../contexts/BooksContext';
 import { getBook } from '../api/axios';
 import { CardMedia } from '@mui/material';
+import { useNavigate } from 'react-router';
 
 const theme = createTheme();
 
@@ -23,8 +24,11 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 function BookShow() {
-  const { shownBook, setShownBookData, shownBookData } = useContext(CurrentBooksContext)
+  const { shownBook, setShownBook, setShownBookData, shownBookData } = useContext(CurrentBooksContext)
   console.log(shownBook)
+  const navigate = useNavigate()
+  // const url = window.location.pathname
+  // console.log(url.replace(/\/+$/, ''))
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -34,16 +38,10 @@ function BookShow() {
     }
     fetchBook()
       .catch(console.error)
-}, [shownBook])
+  }, [shownBook])
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+
+  
 
   return (
     <ThemeProvider theme={theme}>
@@ -75,7 +73,7 @@ function BookShow() {
             >
               <CardMedia
                 component="img"
-                image={shownBookData?.volumeInfo?.imageLinks?.thumbnail}
+                image={shownBookData?.volumeInfo?.imageLinks?.large || shownBookData?.volumeInfo?.imageLinks?.thumbnail}
                 alt="book cover"
                 style={{width: '500', height: '200'}}
               />
@@ -95,14 +93,14 @@ function BookShow() {
                 color="text.primary"
                 gutterBottom
               >
-                {shownBookData?.volumeInfo?.authors}
+                {shownBookData?.volumeInfo?.authors.join(', ')}
               </Typography>
               <Typography variant="h5" align="center" color="text.secondary" paragraph style={{maxHeight: '50vh', overflowY: 'scroll'}}>
-              {shownBookData?.volumeInfo?.description}
+              {shownBookData?.volumeInfo?.description.replace(/<\/?[^>]+(>|$)/g, "\n")}
               </Typography>
-              <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <Box component="form" noValidate sx={{ mt: 1 }}>
                 <ColorButton
-                  type="submit"
+                  onClick={() => navigate('/')}
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2, bgcolor: '#0B295B' }}

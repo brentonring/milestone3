@@ -33,7 +33,7 @@ function HomeBody() {
         <Container maxWidth="lg" >
             <Grid container spacing={4}>
             {currentBooks?.map((book) => (
-                <Grid item key={book?.id} xs={12} md={4}>
+                <Grid item key={book?.id} xs={12} sm={6} md={4}>
                     <Card
                         sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                     >
@@ -47,7 +47,7 @@ function HomeBody() {
                                 {book?.volumeInfo?.title}
                             </Typography>
                             <Typography gutterBottom variant="h5" component="h3" style={{ fontSize: 24, color: '#0B295B' }}>
-                                {book?.volumeInfo?.authors}
+                                {book?.volumeInfo?.authors?.join(', ')}
                             </Typography>
                             <Typography style={{ fontSize: 14, color: '#2F4858', maxHeight: '30vh', overflowY: 'scroll' }}>
                                 {/* SCROLLBAR OPTION */}
@@ -61,7 +61,7 @@ function HomeBody() {
                             </Typography>
                         </CardContent>
                         <CardActions style={{justifyContent: 'center'}}>
-                            <Link style={{ color: '#EC412F' }} size="small" to={`/books/${book?.id}`} onClick={() => setShownBook(book?.id)} >
+                            <Link style={{ color: '#EC412F' }} size="small" to={`/${book?.id}`} onClick={() => setShownBook(book?.id)} >
                                 <AutoStoriesIcon/>
                             </Link>
                             <Button>
