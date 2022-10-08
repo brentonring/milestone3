@@ -40,7 +40,7 @@ function HomeBody() {
                         <CardMedia
                             component="img"
                             image={book?.volumeInfo?.imageLinks?.thumbnail}
-                            alt="book cover"
+                            alt={`${book?.volumeInfo?.title} book cover`}
                         />
                         <CardContent sx={{ flexGrow: 1 }}>
                             <Typography gutterBottom variant="h5" component="h2" style={{ fontSize: 34, color: '#0B295B' }}>
@@ -61,7 +61,7 @@ function HomeBody() {
                             </Typography>
                         </CardContent>
                         <CardActions style={{justifyContent: 'center'}}>
-                            <Link style={{ color: '#EC412F' }} size="small" to={`/${book?.id}`} onClick={() => setShownBook(book?.id)} >
+                            <Link style={{ color: '#EC412F' }} size="small" to={`/books/${book?.id}`} onClick={() => setShownBook(book?.id)} >
                                 <AutoStoriesIcon/>
                             </Link>
                             <Button>

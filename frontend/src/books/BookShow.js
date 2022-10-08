@@ -74,7 +74,7 @@ function BookShow() {
               <CardMedia
                 component="img"
                 image={shownBookData?.volumeInfo?.imageLinks?.large || shownBookData?.volumeInfo?.imageLinks?.thumbnail}
-                alt="book cover"
+                alt={`${shownBookData?.volumeInfo?.title} book cover`}
                 sx={{width: 300, height: 'auto'}}
               />
               <Typography
