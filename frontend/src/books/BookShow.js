@@ -111,7 +111,7 @@ function BookShow() {
               </a>
               <Box component="form" noValidate sx={{ mt: 1 }}>
                 <ColorButton
-                  onClick={() => navigate('/')}
+                  onClick={() => navigate(-1)}
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2, bgcolor: '#0B295B' }}
