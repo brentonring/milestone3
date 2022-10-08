@@ -27,11 +27,11 @@ function HomeBody() {
     console.log('consume', currentBooks)
 
     return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider my={6} theme={theme}>
         <CssBaseline />
         <main>
         <Container maxWidth="lg" >
-            <Grid container spacing={4}>
+            <Grid container spacing={3}>
             {currentBooks?.map((book) => (
                 <Grid item key={book?.id} xs={12} sm={6} md={4}>
                     <Card

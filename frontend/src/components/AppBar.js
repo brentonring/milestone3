@@ -14,7 +14,9 @@ function RelitAppBar() {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar sx={{bgcolor: '#0B295B'}} position="static">
                 <Toolbar style={{ height: '100px', width: '100%' }} variant="dense">
-                    <AutoStoriesOutlinedIcon style={{ fontSize: 50, color: '#F7F7F7' }} sx={{ mr: 5 }}/>
+                    <Button href="/">
+                        <AutoStoriesOutlinedIcon style={{ fontSize: 50, color: '#F7F7F7' }} sx={{ mr: 5 }} />
+                    </Button>
                     <Typography sx={{ fontWeight: 350, flexGrow: 1 }} variant="h4" color='#EC412F' component="div">
                         ReLit
                     </Typography>
