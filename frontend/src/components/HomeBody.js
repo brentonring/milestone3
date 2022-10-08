@@ -11,19 +11,15 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { CurrentBooksContext } from '../contexts/BooksContext';
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom';
-import { getBook } from '../api/axios';
 
 
 const theme = createTheme();
 
 function HomeBody() {
-    const [fullDesc, setFullDesc] = useState(false)
-    const { currentBooks, shownBook, setShownBook } = useContext(CurrentBooksContext)
+    const { currentBooks, setShownBook } = useContext(CurrentBooksContext)
     console.log('consume', currentBooks)
 
     return (
@@ -50,14 +46,7 @@ function HomeBody() {
                                 {book?.volumeInfo?.authors?.join(', ')}
                             </Typography>
                             <Typography style={{ fontSize: 14, color: '#2F4858', maxHeight: '30vh', overflowY: 'scroll' }}>
-                                {/* SCROLLBAR OPTION */}
                                 {book?.volumeInfo?.description}
-                                {/* DROPDOWN OPTION */}
-                                {/* {fullDesc ? book?.volumeInfo?.description : book?.volumeInfo?.description?.substring(0,400) + '...'} */}
-                                {/* <br /> */}
-                                {/* <Button onClick={() => setFullDesc(!fullDesc)} style={{justifyContent: 'center'}}>
-                                    {fullDesc ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
-                                </Button> */}
                             </Typography>
                         </CardContent>
                         <CardActions style={{justifyContent: 'center'}}>
