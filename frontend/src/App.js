@@ -29,7 +29,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/sign-up" element={<SignUpForm />} />
           {/* <Route path="/books" element={<BookIndex />} /> */}
-          <Route path="/:bookId" element={
+          <Route path="/books/:bookId" element={
             <Fragment>
               <CurrentBooksProvider>
                 <BookShow />
