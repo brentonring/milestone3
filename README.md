@@ -18,12 +18,17 @@ ReLit is your go-to book sharing application. Search for your favorite books, ad
 # Project Plan
 - ✨ Overall idea
     * Book API- Book sharing 
-      * User Data: user_id, first_name, last_name, email, password, create, update
-      * Favorites Data: favorite_id, title, authors, description, user_id, create, update
+      * Home Page: Sign-up Form, Login Page
+         - Book Index Page 
+         - Book Show Page
+         - About Page (Future Implementation)
+      * Sign-up Form/Login Page:
+         - Profile Page and Favorites
+         - Search Bar Component found on most components     
 - ✨ Name: Relit Books
 - ✨ Design/look
- * Font:  BlackMango (Font in logo, from Canva)
- * Colors: (https://mycolor.space/?hex=%23845EC2&sub=1)
+   * Font:  BlackMango (Font in logo, from Canva)
+   * Colors: (https://mycolor.space/?hex=%23845EC2&sub=1)
 <p align="center">
 <img width="100px" src="./backend/public/build/Color_Design.png" align="center" alt="Color Palette Ideas using Material UI" />
  <h2 align="center">Color Palette Ideas using Material UI</h2>
@@ -45,8 +50,7 @@ ReLit is your go-to book sharing application. Search for your favorite books, ad
 - ✨ Front-end: React, MaterialUI
 - ✨ Back-end: Express, Node.js, Postgres
     - Packages: Express, NodeJS
-    - Database: Postgres/SQL
-
+    
 - ✨ Database: PostgreSQL
 
 ## ✨ Future Tasks✨
