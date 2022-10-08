@@ -25,7 +25,10 @@
 ## Project Wireframe/Structure:
 <p align="center">
 <img width="100px" src="./backend/public/build/Table Relationships.jpg" align="center" alt="Relit Books Database Table Relationships" />
- <h2 align="center">Relit Books Database Table Relationships</h2>/>
+ <h2 align="center">Relit Books Database Table Relationships</h2>
+ <p align="center">
+<img width="100px" src="./backend/public/build/Routes_Diagram.jpg" align="center" alt="Relit Books Views and Routes CRUD Diagram" />
+ <h2 align="center">Relit Books Views and Routes CRUD Diagram</h2>
 
 
 
