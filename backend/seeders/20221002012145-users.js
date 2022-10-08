@@ -10,8 +10,8 @@ module.exports = {
         last_name: "Doe",
         email: "example@example.com",
         password_digest: "password",
-        created_at: new Date(),
-        updated_at: new Date(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     ]);
 

@@ -18,7 +18,7 @@ function App() {
       <RelitAppBar/>
       <Router>
         <Routes>           
-          <Route exact path='/' element={
+          <Route exact={true} path='/' element={
             <Fragment>    
               <CurrentBooksProvider>
                 <SearchBar />
