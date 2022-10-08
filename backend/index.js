@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 // CONTROLLERS AND ROUTES
 app.use("/users", require("./controllers/users"));
-// app.use("/authentication", require("./controllers/authentication"));
+app.use("/authentication", require("./controllers/authentication"));
 
 // serve static front end in production mode
 if (process.env.NODE_ENV === "production") {

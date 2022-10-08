@@ -13,8 +13,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { CurrentUser } from '../contexts/CurrentUser';
 
 const theme = createTheme();
 
@@ -28,25 +29,38 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 function LoginForm() {
     const navigate = useNavigate();
+
+    const { setCurrentUser } = useContext(CurrentUser)
     
-    const [user, setUser] = useState({
+    const [credentials, setCredentials] = useState({
         email:'',
         password:''
     })
 
+    const [errorMessage, setErrorMessage] = useState(null)
 
     async function handleSubmit(e) {
 		e.preventDefault()
 
-    await fetch(`http://localhost:5000/users/`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    })
-navigate('/profile')
-}
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}authentication/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        })
+
+        const data = await response.json()
+
+        if (response.status === 200) {
+            setCurrentUser(data.user)
+            localStorage.setItem('token', data.token)
+            navigate('/profile')
+        } else {
+            setErrorMessage(data.message)
+        }
+        
+    }
 
 return (
     
@@ -72,8 +86,9 @@ return (
                     margin="normal"
                     required
                     fullWidth
-                    value={user.email}
-                    onChange={e => setUser({ ...user, email: e.target.value })}
+                    type="email"
+                    value={credentials.email}
+                    onChange={e => setCredentials({ ...credentials, email: e.target.value })}
                     className="form-control"
                     id="email"
                     label="Email Address"
@@ -89,8 +104,8 @@ return (
                     name="password"
                     label="Password"
                     type="password"
-                    value={user.password}
-                    onChange={e => (setUser({ ...user, password: e.target.value }))}
+                    value={credentials.password}
+                    onChange={e => (setCredentials({ ...credentials, password: e.target.value }))}
                     className='form-control'
                     id="password"
                     autoComplete="current-password"
