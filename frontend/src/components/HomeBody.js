@@ -27,7 +27,7 @@ function HomeBody() {
     console.log('consume', currentBooks)
 
     return (
-    <ThemeProvider my={6} theme={theme}>
+    <ThemeProvider theme={theme}>
         <CssBaseline />
         <main>
         <Container maxWidth="lg" >
