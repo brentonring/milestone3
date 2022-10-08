@@ -76,8 +76,8 @@ function SignUpForm() {
                   required
                   fullWidth
                   value={user.first_name}
-							    onChange={e => setUser({ ...user, first_name: e.target.value })}
-							    className="form-control"
+                  onChange={e => setUser({ ...user, first_name: e.target.value })}
+                  className="form-control"
                   id="first_name"
                   label="First Name"
                   color="warning"
@@ -89,8 +89,8 @@ function SignUpForm() {
                   required
                   fullWidth
                   value={user.last_name}
-							    onChange={e => setUser({ ...user, last_name: e.target.value })}
-							    className="form-control"
+                  onChange={e => setUser({ ...user, last_name: e.target.value })}
+                  className="form-control"
                   id="lastName"
                   label="Last Name"
                   name="last_name"
@@ -105,8 +105,8 @@ function SignUpForm() {
                   required
                   fullWidth
                   value={user.email}
-							    onChange={e => setUser({ ...user, email: e.target.value })}
-							    className="form-control"
+                  onChange={e => setUser({ ...user, email: e.target.value })}
+                  className="form-control"
                   id="email"
                   label="Email Address"
                   name="email"
@@ -123,8 +123,8 @@ function SignUpForm() {
                   label="Password"
                   type="password"
                   value={user.password}
-							    onChange={e => (setUser({ ...user, password: e.target.value }))}
-							    className='form-control'
+                  onChange={e => (setUser({ ...user, password: e.target.value }))}
+                  className='form-control'
                   id="password"
                   autoComplete="new-password"
                   color="warning"
