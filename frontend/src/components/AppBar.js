@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 // import MenuIcon from '@mui/icons-material/Menu';
 import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
 
+
 function RelitAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -17,8 +18,17 @@ function RelitAppBar() {
                     <Typography sx={{ fontWeight: 350, flexGrow: 1 }} variant="h4" color='#EC412F' component="div">
                         ReLit
                     </Typography>
-                    <Button style={{ fontSize: 14, color: '#F7F7F7' }} sx={{ mr: 2 }} href="https://google.com">Sign Up</Button>
-                    <Button style={{ fontSize: 14, color: '#F7F7F7' }} sx={{ mr: 8 }} href="https://google.com">Login</Button>
+                    <Button 
+                        style={{ fontSize: 14, color: '#F7F7F7' }}
+                        sx={{ mr: 2 }}
+                        href="/sign-up">
+                            Sign Up
+                    </Button>
+                    <Button
+                        style={{ fontSize: 14, color: '#F7F7F7' }}
+                        sx={{ mr: 8 }} href="/login">
+                            Login
+                    </Button>
                 </Toolbar>
             </AppBar>
         </Box>
