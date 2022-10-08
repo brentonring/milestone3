@@ -22,12 +22,13 @@ ReLit is your go-to book sharing application. Search for your favorite books, ad
       * Favorites Data: favorite_id, title, authors, description, user_id, create, update
 - ✨ Name: Relit Books
 - ✨ Design/look
+ * Font:  BlackMango (Font in logo, from Canva)
+ * Colors: (https://mycolor.space/?hex=%23845EC2&sub=1)
 <p align="center">
 <img width="100px" src="./backend/public/build/Color_Design.png" align="center" alt="Color Palette Ideas using Material UI" />
  <h2 align="center">Color Palette Ideas using Material UI</h2>
 
-    * Font:  BlackMango (Font in logo, from Canva)
-    * Colors: (https://mycolor.space/?hex=%23845EC2&sub=1)
+   
 
 ## Project Wireframe/Structure:
 <p align="center">
