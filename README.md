@@ -23,7 +23,9 @@
     * Colors:
 
 ## Project Wireframe/Structure:
-<img width="100px" src="./backend/public/build/Table Relationships.jpg"/>
+<p align="center">
+<img width="100px" src="./backend/public/build/Table Relationships.jpg" align="center" alt="Relit Books Database Table Relationships" />
+ <h2 align="center">Relit Books Database Table Relationships</h2>/>
 
 
 
