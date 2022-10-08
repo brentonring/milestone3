@@ -34,28 +34,33 @@ const SearchBar = () => {
             >
                 <Grid>
                 <TextField
-                    fullWidth
-                    id="outlined-search"
-                    label="Search Books Here" 
-                    type="search"
-                    variant="outlined"
-                    onChange={(e) => setSearchTerm(e.target.value)}                 
-                    color="warning"
-                    focused
-                />
-
-                <InputLabel># of Results</InputLabel>
-                <Select 
-                    onChange={(e) => setQuantity(e.target.value)}
-                    value={quantity}
-                    label="Quantity"
-                >
-                    <MenuItem value={12}>12</MenuItem>
-                    <MenuItem value={24}>24</MenuItem>
-                    <MenuItem value={36}>36</MenuItem>
-                </Select>
+                        fullWidth
+                        id="outlined-search"
+                        label="Search Books Here" 
+                        type="search"
+                        variant="standard"
+                        onChange={(e) => setSearchTerm(e.target.value)}                 
+                        color="warning"
+                        focused
+                    />
+                    <InputLabel
+                        style={{fontSize: 11, color: '#2F4858'}}
+                        sx={{ mt: 2 }}
+                        >
+                            # of Results
+                    </InputLabel>
+                    <Select
+                        style={{fontSize: 12, color: '#0B295B', width: 60, height: 31 }}
+                        color="warning"
+                        onChange={(e) => setQuantity(e.target.value)}
+                        value={quantity}
+                        label="Quantity"
+                    >
+                        <MenuItem style={{fontSize: 12, color: '#0B295B'}} value={12}>12</MenuItem>
+                        <MenuItem style={{fontSize: 12, color: '#0B295B'}} value={24}>24</MenuItem>
+                        <MenuItem style={{fontSize: 12, color: '#0B295B'}} value={36}>36</MenuItem>
+                    </Select>
                 </Grid>
-
             </Box>
         )
 }
