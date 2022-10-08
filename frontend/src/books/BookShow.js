@@ -75,7 +75,7 @@ function BookShow() {
                 component="img"
                 image={shownBookData?.volumeInfo?.imageLinks?.large || shownBookData?.volumeInfo?.imageLinks?.thumbnail}
                 alt="book cover"
-                style={{width: '500', height: '200'}}
+                sx={{width: 300, height: 'auto'}}
               />
               <Typography
                 component="h1"
@@ -95,7 +95,7 @@ function BookShow() {
               >
                 {shownBookData?.volumeInfo?.authors.join(', ')}
               </Typography>
-              <Typography variant="h5" align="center" color="text.secondary" paragraph style={{maxHeight: '50vh', overflowY: 'scroll'}}>
+              <Typography variant="h7" align="justify" color="text.secondary" paragraph style={{maxHeight: '50vh', overflowY: 'scroll'}}>
               {shownBookData?.volumeInfo?.description.replace(/<\/?[^>]+(>|$)/g, "\n")}
               </Typography>
               <Box component="form" noValidate sx={{ mt: 1 }}>
