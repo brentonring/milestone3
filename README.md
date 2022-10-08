@@ -6,6 +6,7 @@
 
 
 # Relit Books
+ReLit is your go-to book sharing application. Search for your favorite books, add them to    your profile, and share the books you have read and loved with others.
 
 ## ✨ Requirements
 * Any Operating System (ie. MacOS X, Linux, Windows)
@@ -16,11 +17,17 @@
 
 # Project Plan
 - ✨ Overall idea
-    *
+    * Book API- Book sharing 
+      * User Data: user_id, first_name, last_name, email, password, create, update
+      * Favorites Data: favorite_id, title, authors, description, user_id, create, update
 - ✨ Name: Relit Books
 - ✨ Design/look
-    * Styling:
-    * Colors:
+<p align="center">
+<img width="100px" src="./backend/public/build/Color_Design.png" align="center" alt="Color Palette Ideas using Material UI" />
+ <h2 align="center">Color Palette Ideas using Material UI</h2>
+
+    * Font:  BlackMango (Font in logo, from Canva)
+    * Colors: (https://mycolor.space/?hex=%23845EC2&sub=1)
 
 ## Project Wireframe/Structure:
 <p align="center">
@@ -42,6 +49,10 @@
 - ✨ Database: PostgreSQL
 
 ## ✨ Future Tasks✨
+ - Convert into TypeScript
+ - Use SASS for styling
+ - Adding more Web Accessibilty features
+
 
 ## 👤 Author(s)
 
@@ -53,4 +64,22 @@
 ## 📝 License
 MIT License
 
+Copyright (c) 2022 Brenton Ring
 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
