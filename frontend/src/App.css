@@ -3,9 +3,5 @@
   --primary-dark-blue: #0B295B;
   --secondary-red-orange: #EC412F;
   --background: #F7F7F7;
+  --text-color: #2F4858;
 }
-
-.App {
-  text-align: center;
-}
-
