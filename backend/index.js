@@ -1,6 +1,6 @@
 // Modules and Globals
 require("dotenv").config();
-const path = require("path");
+path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -14,11 +14,16 @@ app.use(bodyParser.json());
 
 // CONTROLLERS AND ROUTES
 app.use("/users", require("./controllers/users"));
+// app.use("/authentication", require("./controllers/authentication"));
 
 // serve static front end in production mode
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(express.static(path.join(__dirname, ".", "client/build")));
 }
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, ".", "client/build/index.html"));
+});
 
 // Listen for Connections
 app.listen(process.env.PORT, () => {
