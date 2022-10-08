@@ -28,7 +28,7 @@ ReLit is your go-to book sharing application. Search for your favorite books, ad
 - ✨ Name: Relit Books
 - ✨ Design/look
    * Font:  BlackMango (Font in logo, from Canva)
-   * Colors: (https://mycolor.space/?hex=%23845EC2&sub=1)
+   * Colors: https://mycolor.space/?hex=%23845EC2&sub=1
 <p align="center">
 <img width="100px" src="./backend/public/build/Color_Design.png" align="center" alt="Color Palette Ideas using Material UI" />
  <h2 align="center">Color Palette Ideas using Material UI</h2>
@@ -50,13 +50,29 @@ ReLit is your go-to book sharing application. Search for your favorite books, ad
 - ✨ Front-end: React, MaterialUI
 - ✨ Back-end: Express, Node.js, Postgres
     - Packages: Express, NodeJS
-    
+
 - ✨ Database: PostgreSQL
 
 ## ✨ Future Tasks✨
  - Convert into TypeScript
  - Use SASS for styling
  - Adding more Web Accessibilty features
+
+## ✨ Resources:
+  * Social Media app github examples
+     * https://github.com/nileshgulia1/React-bookstore
+     * https://github.com/topics/social-media-app?l=javascript
+     * https://github.com/rimijoker/Social-Media-App
+     * https://github.com/saifulshihab/view-book
+     * https://github.com/reedanna/pokemonbattlefrontier-frontend
+  * Websites
+     * https://levelup.gitconnected.com/how-to-simultaneously-run-the-client-and-server-of-your-full-stack-app-in-one-folder-ef5a988d56d7
+     * https://www.freecodecamp.org/news/how-to-create-a-react-app-with-a-node-backend-the-complete-guide/
+     * https://www.npmjs.com/package/concurrently
+  * Images
+     * https://www.canva.com/design/DAFNj2k4i2U/Z-lqpn8xDRfqPAp79ii_tw/view?utm_content=DAFNj2k4i2U&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink   
+  * Github Version control/editing process
+     * https://uoftcoders.github.io/studyGroup/lessons/git/collaboration/lesson/  
 
 
 ## 👤 Author(s)
