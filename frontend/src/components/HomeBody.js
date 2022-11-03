@@ -50,11 +50,11 @@ function HomeBody() {
                             </Typography>
                         </CardContent>
                         <CardActions style={{justifyContent: 'center'}}>
-                            <Link style={{ color: '#EC412F' }} size="small" to={`/books/${book?.id}`} onClick={() => setShownBook(book?.id)} >
+                            <Button style={{ color: '#EC412F' }} size="small" to={`/books/${book?.id}`} onClick={() => setShownBook(book?.id)} >
                                 <AutoStoriesIcon/>
-                            </Link>
-                            <Button>
-                                <FavoriteIcon sx={{ color: '#EC412F' }} />
+                            </Button>
+                            <Button style={{ color: '#EC412F' }} size='small'>
+                                <FavoriteIcon />
                             </Button>
                         </CardActions>
                     </Card>
