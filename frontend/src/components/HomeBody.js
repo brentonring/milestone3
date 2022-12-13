@@ -29,7 +29,7 @@ function HomeBody() {
         <Container maxWidth="lg" >
             <Grid container spacing={3}>
             {currentBooks?.map((book) => (
-                <Grid item key={book?.id} xs={12} sm={6} md={4}>
+                <Grid item key={book?.id} xs={12} sm={6} md={3}>
                     <Card
                         sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                     >
@@ -60,6 +60,13 @@ function HomeBody() {
                     </Card>
                 </Grid>
             ))}
+            <div className='card-actions'>
+                <button id='load-more'>Load More</button>
+                <span>Showing
+                    <span id='card-count'></span> of
+                    <span id='card-total'></span> cards
+                </span>
+            </div>
             </Grid>
         </Container>
         </main>

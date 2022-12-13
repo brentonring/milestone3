@@ -8,6 +8,7 @@ import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 import Grid from '@mui/material/Grid';
+import { color, style } from '@mui/system';
 
 const SearchBar = () => {
     const handleSubmit = (e) => e.preventDefault()
@@ -39,9 +40,11 @@ const SearchBar = () => {
                         label="Search Books Here" 
                         type="search"
                         variant="standard"
-                        onChange={(e) => setSearchTerm(e.target.value)}                 
-                        color="warning"
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onClick={style}               
+                        // color="#0B295B"
                         focused
+                        style={{color: "#0B295B"}}
                     />
                     <InputLabel
                         style={{fontSize: 11, color: '#2F4858'}}
